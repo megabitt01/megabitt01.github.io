@@ -14,24 +14,30 @@ export default function Model({ modelName, position = [0, 0, 0] }) {
 
     const t = clock.getElapsedTime()
 
-    // ref.current.position.set(
-    //   basePosition.current.x,
-    //   basePosition.current.y + Math.sin(t * 1.2) * 0.25,
-    //   basePosition.current.z
-    // )
+    ref.current.position.set(
+      basePosition.current.x,
+      basePosition.current.y + Math.sin(t * 1.2) * 0.25,
+      basePosition.current.z
+    )
 
-    // ref.current.rotation.y += delta * 0.5
+    ref.current.rotation.y += delta * 0.5
   })
 
   return (
     <primitive
       ref={ref}
       object={scene}
-      scale={12}
+      scale={1}
       position={position}
-      rotation={}
     />
   )
 }
 
-useGLTF.preload('/models/Grid.glb')
+useGLTF.preload('/models/WindowsXP.glb')
+useGLTF.preload('/models/Keyboard.glb')
+useGLTF.preload('/models/Tux.glb')
+useGLTF.preload('/models/Pen.glb')
+useGLTF.preload('/models/CD.glb')
+useGLTF.preload('/models/Headphones.glb')
+useGLTF.preload('/models/Dolphin.glb')
+useGLTF.preload('/models/Gamecube.glb')

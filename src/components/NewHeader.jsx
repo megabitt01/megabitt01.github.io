@@ -2,7 +2,7 @@ import { useState } from "react";
 import SkeuoImage from "./SkeuoImage";
 
 export default function Header() {
-    const [ cursor, setCursor ] = useState(true);
+    const [ cursor, setCursor ] = useState(false);
     return(
         <>
         <div className="new-header-bar">

@@ -47,7 +47,14 @@ export default function ThreeDee() {
       }}
     >
         <CameraRig />
-        <Model modelName="Grid" position={[2, -12, 3]} />
+        <Model modelName="WindowsXP" position={[0, 0.4, 3]} />
+        <Model modelName="Keyboard" position={[3.1, -0.2, 1.5]} />
+        <Model modelName="Pen" position={[13.5, -0.2, 12]} />
+        <Model modelName="Tux" position={[9.5, -1.5, 13]} />
+        <Model modelName="CD" position={[21, 0.4, 23.5]} />
+        <Model modelName="Headphones" position={[20, -2.5, 16]} />
+        <Model modelName="Dolphin" position={[30, -1.5, 33]} />
+        <Model modelName="Gamecube" position={[31, -3, 28]} />
 
       <Environment preset="studio" />
     </Canvas>
