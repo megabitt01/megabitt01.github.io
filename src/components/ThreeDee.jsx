@@ -4,7 +4,7 @@ import Model from './Model.jsx'
 import { CamContext } from '../context/contexts.jsx'
 import { useRef, useState, useContext, useEffect } from 'react'
 
-function CameraRig() {
+function CameraRig(interp) {
   const {camState, setCamState} = useContext(CamContext);
   const easedPos = useRef(0);
 
@@ -23,31 +23,36 @@ function CameraRig() {
   //   camera.position.z = 5 - camState * -0.02
   // })
   useFrame((_, delta) => {
-    const ease = 1 - Math.exp(-6 * delta)
-    easedPos.current += (camState - easedPos.current) * ease
-
-    const s = easedPos.current
-
-    _.camera.position.x = 5 - s * -0.01
+    let s
+    if(interp == true) {
+      const ease = 1 - Math.exp(-6 * delta)
+      easedPos.current += (camState - easedPos.current) * ease
+  
+      s = easedPos.current
+    } else {
+      s = camState - easedPos.current
+    }
     _.camera.position.z = 5 - s * -0.01
+    // _.camera.position.z = 5 - s * -0.01
   })
 
   return null
 } 
 
-export default function ThreeDee() {
+export default function ThreeDee(interp) {
   return (
     <Canvas
-      camera={{ position: [4.5, 0.3, 4], fov: 50 }}
+      camera={{ position: [0, 0, 0], fov: 50 }}
       style={{ 
         width: '100vw', 
-        height: '100vh', 
+        height: '700px', 
         position: 'fixed', 
         left:0
       }}
     >
-        <CameraRig />
-        <Model modelName="Grid" position={[2, -12, 3]} />
+        <CameraRig interp/>
+        <Model modelName="NewGrid" position={[2, 12, 3]} />
+        <Model modelName="NewGrid2" position={[2, -12, 3]} />
 
       <Environment preset="studio" />
     </Canvas>

@@ -1,6 +1,7 @@
 
 :root {
-  --bkg-color: linear-gradient(180deg,rgb(154, 175, 214) 0%, rgb(165, 177, 198) 100%);
+  /* --bkg-color: linear-gradient(180deg,rgb(154, 175, 214) 0%, rgb(165, 177, 198) 100%); */
+  --bkg-color: #212121;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -387,4 +388,20 @@ h1 {
 
 .button-container .skeuo-button {
     margin: 10px 0px;
+}
+
+.twodee-overlay {
+  position: absolute;
+  z-index: 10;
+  width: 100vw;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.twodee-overlay h1 {
+  font-size: 2.5em;
+  width: 75%;
+  color: #FF9BE8FF;
 }

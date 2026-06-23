@@ -27,11 +27,12 @@ export default function Model({ modelName, position = [0, 0, 0] }) {
     <primitive
       ref={ref}
       object={scene}
-      scale={12}
+      scale={3}
       position={position}
-      rotation={}
+      rotation={[0,0,0]}
     />
   )
 }
 
-useGLTF.preload('/models/Grid.glb')
+useGLTF.preload('/models/NewGrid.glb')
+useGLTF.preload('/models/NewGrid2.glb')
