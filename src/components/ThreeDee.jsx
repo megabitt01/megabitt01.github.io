@@ -1,5 +1,6 @@
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Environment } from '@react-three/drei'
+import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import Model from './Model.jsx'
 import { CamContext } from '../context/contexts.jsx'
 import { useRef, useState, useContext, useEffect } from 'react'
@@ -51,10 +52,16 @@ export default function ThreeDee(interp) {
       }}
     >
         <CameraRig interp/>
-        <Model modelName="NewGrid" position={[2, 12, 3]} />
-        <Model modelName="NewGrid2" position={[2, -12, 3]} />
-
-      <Environment preset="studio" />
+        <Model modelName="NewGrid" position={[2, 35, -15]} />
+        <Model modelName="NewGrid2" position={[2, -35, -15]} />
+        <EffectComposer>
+          <Bloom
+            intensity={1.0} // The bloom intensity.
+            luminanceThreshold={0.9} // luminance threshold. Raise this value to mask out darker elements in the scene.
+            luminanceSmoothing={0.025} // smoothness of the luminance threshold. Range is [0, 1]
+            mipmapBlur={false} // Enables or disables mipmap blur.
+          />
+        </EffectComposer>
     </Canvas>
   )
 }

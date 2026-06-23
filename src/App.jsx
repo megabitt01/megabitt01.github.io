@@ -59,7 +59,8 @@ function App() {
         lastFrameRef.current = timestamp;
       }
 
-      if (x >= 975) {
+      // if (x >= 975) {
+      if (x >= 1650) {
         startRef.current = timestamp;
       }
 
@@ -80,6 +81,7 @@ function App() {
       <CamContext.Provider value={{ camState, setCamState }}>
         <div className="twodee-overlay">
           <h1>{h1frames[greetIndex]}</h1>
+          <div className="twodee-fog"></div>
         </div>
 
         <ThreeDee interp={interp} />

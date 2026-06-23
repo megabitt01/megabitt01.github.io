@@ -27,7 +27,7 @@ export default function Model({ modelName, position = [0, 0, 0] }) {
     <primitive
       ref={ref}
       object={scene}
-      scale={3}
+      scale={5}
       position={position}
       rotation={[0,0,0]}
     />

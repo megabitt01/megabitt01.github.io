@@ -404,4 +404,14 @@ h1 {
   font-size: 2.5em;
   width: 75%;
   color: #FF9BE8FF;
+  z-index: 15;
+}
+
+.twodee-fog {
+  position: absolute;
+  background-color: #212121;
+  box-shadow: 0px 0px 50px 50px #212121;
+  width: 100%;
+  height: 100px;
+  z-index: 0;
 }
