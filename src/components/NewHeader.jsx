@@ -9,7 +9,7 @@ export default function Header() {
             <div className="new-header-content">
                 <img src="https://avatars.githubusercontent.com/u/71474581?v=4" className="new-header-image" />
                 <div className="new-header-text">
-                    <h2>
+                    <h2 style={{fontSize: '2em'}}>
                         thejackbitt{cursor ? "█" : ""}
                     </h2>
                 </div>

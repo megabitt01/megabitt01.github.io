@@ -1,0 +1,65 @@
+import { Canvas, useFrame } from '@react-three/fiber'
+import { Environment, AsciiRenderer, OrbitControls } from '@react-three/drei'
+import { EffectComposer, Bloom } from '@react-three/postprocessing';
+import Model from './Model.jsx'
+import { CamContext2 } from '../context/contexts.jsx'
+import { useRef, useState, useContext, useEffect } from 'react'
+
+function CameraRig(interp) {
+  const {camState2, setCamState2} = useContext(CamContext2);
+  const easedPos = useRef(0);
+
+  // useEffect(() => {
+  //   const onScroll = () => setCamState(window.scrollY)
+  //   window.addEventListener('scroll', onScroll)
+  //   return () => window.removeEventListener('scroll', onScroll)
+  // }, [])
+
+  // useFrame(({ camera }) => {
+  //   camera.position.x = 5 - scrollY * -0.01
+  //   camera.position.z = 5 - scrollY * -0.02
+  // })
+  // useFrame(({ camera }) => {
+  //   camera.position.x = 5 - camState * -0.01
+  //   camera.position.z = 5 - camState * -0.02
+  // })
+  useFrame((_, delta) => {
+    let s
+    if(interp == true) {
+      const ease = 1 - Math.exp(-6 * delta)
+      easedPos.current += (camState - easedPos.current) * ease
+  
+      s = easedPos.current
+    } else {
+      s = camState2 - easedPos.current
+    }
+    _.camera.position.z = 5 - s * -0.01
+    // _.camera.position.z = 5 - s * -0.01
+  })
+
+  return null
+} 
+
+export default function ThreeDee(interp) {
+  return (
+    <Canvas
+      camera={{ position: [0, 0, 0], fov: 50 }}
+      style={{ 
+        width: 'calc(100% - 5px)', 
+        height: '660px', 
+        position: 'relative', 
+        background: 'black',
+        left:0
+      }}
+    >
+        <CameraRig interp/>
+        <Model modelName="Arch" position={[-0.2, -2.2, -4]} scale={1} spin={true} />
+          <AsciiRenderer
+            fgColor="#03fcd3"
+            bgColor="transparent"
+            characters=".:-+*=/%@# "
+          />
+        <Environment preset="studio" />
+    </Canvas>
+  )
+}
