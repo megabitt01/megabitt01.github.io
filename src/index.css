@@ -400,17 +400,51 @@ h1 {
   justify-content: center;
 }
 
-.twodee-overlay h1 {
-  font-size: 4.5em;
-  width: 75%;
-  color: #FF9BE8FF;
+.twodee-greeter {
+  display: flex;
   z-index: 15;
+}
+
+.twodee-header {
+  width: 430px;
+  height: 100px;
+}
+
+.twodee-header h1 {
+  font-size: 4.5em;
+  width: 100%;
+  color: #FF9BE8FF;
+  z-index: 20;
 }
 
 .twodee-text {
   color: #FF9BE8FF;
   z-index: 15;
   font-size: 1.5em;
+}
+
+.twodee-text .highlight {
+  color: #01f8dd;
+}
+
+.twodee-text .small {
+  font-size: 0.7em;
+}
+
+.twodee-text .large {
+  font-size: 1.5em;
+}
+
+.twodee-leftblock {
+  position: absolute;
+  left: 90px;
+  top: 30px;
+}
+
+.twodee-rightblock {
+  position: absolute;
+  right: 90px;
+  top: 30px;
 }
 
 .twodee-fog {
@@ -796,4 +830,111 @@ h1 {
     width: 0%;
     right: 0%;
   }
+}
+
+.neon-btn {
+  margin: 20px;
+  width: 130px;
+  height: 40px;
+  padding: 10px 25px;
+  font-family: 'Fira Code', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.neon-btn-pink {
+  color: #ff9aff;
+  border: 1px solid#ff9aff;
+  box-shadow: 0 0 5px #ff9aff, 0 0 5px #ff9aff inset;
+}
+
+.neon-btn-blue {
+  color: #01f8dd;
+  border: 1px solid#01f8dd;
+  box-shadow: 0 0 5px #01f8dd, 0 0 5px #01f8dd inset;
+}
+
+.neon-btn:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.neon-btn-pink:after {
+  background: #ff9aff;
+  box-shadow:
+   0 0 20px  #ff9aff;
+}
+
+.neon-btn-blue:after {
+  background: #01f8dd;
+  box-shadow:
+   0 0 20px  #01f8dd;
+}
+
+.neon-btn:hover {
+  color: #fff;
+}
+.neon-btn:hover:after {
+  left: 0;
+  width: 100%;
+}
+.neon-btn:active {
+  top: 2px;
+}
+
+button:focus, input[type=reset]:focus, input[type=submit]:focus  {
+  outline: 0px!important;
+  outline-offset: 0px!important;
+}
+
+.neon-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.neon-menu {
+  width: 700px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+}
+
+.neon-menu li {
+  width: 750px;
+}
+
+.neon-menu-item {
+  color: #FF9BE8FF;
+  z-index: 15;
+  font-size: 1.5em;
+  line-height: 1em;
+  margin-bottom: 0px;
+}
+
+.neon-menu-item-alt {
+  color: #01f8dd;
+  z-index: 15;
+  font-size: 1.5em;
+  line-height: 1em;
+  margin-bottom: 0px;
+}
+
+.neon-menu-item .small, .neon-menu-item-alt .small {
+  font-size: 0.7em;
 }

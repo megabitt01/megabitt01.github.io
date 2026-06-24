@@ -6,6 +6,7 @@ import { CamContext, CamContext2 } from './context/contexts'
 import ThreeDee from './components/ThreeDee';
 import ThreeDee2 from './components/ThreeDee2.jsx';
 import "98.css";
+import NeonButton from './NeonButton.jsx'
 
 function App() {
   const [camState, setCamState] = useState(0);
@@ -84,13 +85,23 @@ function App() {
     <>
       <NewHeader />
 
-      <div className="threedee-container">
+      <div className="threedee-container" style={{paddingTop: '50px'}}>
         <CamContext.Provider value={{ camState, setCamState }}>
           <div className="twodee-overlay">
-            <h1>{h1frames[greetIndex]}</h1>
-            <div class="twodee-text">
-              <p>Hi, I'm Jack Bittner</p>
-              <p>Contract SWE @ Northwestern Mutual | Typescript/React, C#, AWS</p>
+            <div class="twodee-greeter">
+              <div class="twodee-header">
+                <h1>{h1frames[greetIndex]}</h1>
+              </div>
+              <div class="twodee-text">
+                <p><b>Hi, I'm <span className="highlight">Jack Bittner</span></b>
+                  <br/>
+                  Contract SWE @ Northwestern Mutual
+                  <br/>
+                  <span className="small">
+                  Typescript/React, C/C++, AWS + Docker + Kubernetes
+                  </span>
+                  </p>
+              </div>
             </div>
             <div className="twodee-fog"></div>
           </div>
@@ -99,7 +110,7 @@ function App() {
         </CamContext.Provider>
       </div>
 
-      <div className="window" style={{ width: 'calc(100% - 6px)', height: '700px'}}>
+      <div className="window" style={{ width: 'calc(100% - 6px)', height: '700px' }}>
         <div className="title-bar">
           <div className="title-bar-text">
             About Me
@@ -108,18 +119,115 @@ function App() {
           <div className="title-bar-controls">
             <button aria-label="Minimize"></button>
             <button aria-label="Maximize"></button>
-            <button aria-label="Close"/>
+            <button aria-label="Close" />
           </div>
         </div>
-        {/* <div className="window-body">
+        <div className="window-body">
           <CamContext2.Provider value={{ camState2, setCamState2 }}>
             <div className="twodee-overlay">
+              <div className="twodee-leftblock">
+                <div className="twodee-text">
+                  <p className="highlight large"><b>Work Experience</b></p>
+                  <ul>
+                    <li className="highlight"><b>Contract Software Engineer</b>
+                      <br/>
+                      Northwestern Mutual - Remote
+                      <br/>
+                      July 2024 - Present
+                      <ul>
+                        <li>
+                          Designed and implemented a self-service application 
+                          <br/>
+                          enabling publishers to create recipient-specific, 
+                          <br/>                          
+                          Northwestern Mutual–branded email communications
+                          <br/>
+                          while enforcing legal and compliance standards 
+                          <br/>
+                          programmatically.
+                        </li>
+                        <li>
+                          Delivered new database microservice endpoints 
+                          <br/>
+                          pertaining to internal databases that eliminated 
+                          <br/>
+                          repetitive development tasks, reducing friction 
+                          <br/>
+                          and accelerating feature delivery across dependent teams.
+                        </li>
+                        <li>Maintain and develop distributed microservices 
+                          <br/>
+                          pertaining to the Alerts and Notifications platform.</li>
+                        <li>Partner with internal teams and external publishers
+                          <br/>
+                          to onboard new applications, distribute batched emails 
+                          <br/>
+                          and ensure compliance with legal.
+                        </li>
+                        <li>
+                          Contribute to platform stability and developer efficiency 
+                          <br/>
+                          through targeted API enhancements and workflow 
+                          <br/>
+                          improvements.
+                        </li>
+                      </ul>
+                    </li>
+
+                  </ul>
+                </div>
+              </div>
+              <div className="twodee-rightblock">
+                <div className="twodee-text">
+                  <br/>
+                  <br/>
+                  <ul>
+                    <li className="highlight"><b>Digital Marketing Specialist</b>
+                      <br/>
+                      Bare Home - Columbus, MN
+                      <br/>
+                      January 2023 - October 2023
+                      <ul>
+                        <li>
+                          Developed a new Shopify website for ecommerce 
+                          <br/>
+                          using Javascript and Liquid.
+                        </li>
+                        <li>
+                          Created and managed digital advertisement 
+                          <br/>
+                          campaigns through Google Ads.
+                        </li>
+                        <li>Improved analytics tracking through 
+                          <br/>
+                          website enhancements.
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <p className="highlight large"><b>Education</b></p>
+                  <ul>
+                    <li className="highlight"><b>Bachelors of Science - BS, Marketing</b>
+                      <br/>
+                      University of Northwestern — St. Paul, MN
+                      <br/>
+                      August 2018 – December 2022
+                    </li>
+                    <li className="highlight"><b>Software Engineering Program</b>
+                      <br/>
+                      University of Minnesota Boot Camps - Blaine, MN
+                      <br/>
+                      November 2023 - March 2024
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
             <ThreeDee2 interp={interp} />
         </CamContext2.Provider>
-        </div> */}
+        </div>
       </div>
-        {/* <div className="neon-container">
+      <div className="neon-container">
           <div id="neon-1b" style={{
             position: 'absolute', 
             left: '20%'
@@ -192,7 +300,45 @@ function App() {
           }}>
             <div className="neon-line-blue horz"></div>
           </div>
-      </div> */}
+      <div className="neon-overlay">
+        <div className="neon-menu">
+          <ul>
+            <li>
+              <p className="neon-menu-item">
+                Video Game Mods
+                <br/>
+                <span className="small">
+                  In my spare time, I have undertaken a few hobby modding projects that involve 
+                  writing in Java or C++ and using build tools like Gradle and Clang/Ninja.
+                  </span>
+              </p>
+              <NeonButton color={0} text="Webpage"/>
+              <NeonButton color={1} text="Repository"/>
+            </li>
+            <li>
+              <p className="neon-menu-item-alt">Catacomb Studios Azure App
+              <br/>
+              <span className="small">
+                I created an ASP.NET web app with account management and basic SMTP functionality. 
+                The page had a simple client data encryption backend. The application was originally 
+                deployed via Azure.
+              </span>
+              </p>
+              <NeonButton color={1} text="Repository"/>
+            </li>
+            <li>
+              <p className="neon-menu-item">Other Projects
+              <br/>
+              <span className="small">
+                When I'm not engineering software, I write and draw.  Check out my additional projects!
+              </span>
+              </p>
+              <NeonButton color={0} text="Webpage"/>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
     </>
   );
 }
