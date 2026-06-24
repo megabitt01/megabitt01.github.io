@@ -50,10 +50,13 @@ function App() {
 
       frameRateRef.current =
         (greetIndexRef.current >= 7 && greetIndexRef.current <= 19) ||
-          (greetIndexRef.current >= 22 && greetIndexRef.current <= 26) ||
-          (greetIndexRef.current >= 30 && greetIndexRef.current <= 52) ||
-          (greetIndexRef.current >= 59 && greetIndexRef.current <= 78) ||
-          (greetIndexRef.current >= 83 && greetIndexRef.current <= 93)
+          (greetIndexRef.current >= 22 && greetIndexRef.current <= 32) ||
+          (greetIndexRef.current >= 38 && greetIndexRef.current <= 47) ||
+          (greetIndexRef.current >= 52 && greetIndexRef.current <= 56) ||
+          (greetIndexRef.current >= 66 && greetIndexRef.current <= 70) ||
+          (greetIndexRef.current >= 75 && greetIndexRef.current <= 84) ||
+          (greetIndexRef.current >= 93 && greetIndexRef.current <= 102) ||
+          (greetIndexRef.current >= 105 && greetIndexRef.current <= 116)
           ? 50
           : 400;
 
@@ -85,6 +88,10 @@ function App() {
         <CamContext.Provider value={{ camState, setCamState }}>
           <div className="twodee-overlay">
             <h1>{h1frames[greetIndex]}</h1>
+            <div class="twodee-text">
+              <p>Hi, I'm Jack Bittner</p>
+              <p>Contract SWE @ Northwestern Mutual | Typescript/React, C#, AWS</p>
+            </div>
             <div className="twodee-fog"></div>
           </div>
 
@@ -104,23 +111,15 @@ function App() {
             <button aria-label="Close"/>
           </div>
         </div>
-        <div className="window-body">
+        {/* <div className="window-body">
           <CamContext2.Provider value={{ camState2, setCamState2 }}>
             <div className="twodee-overlay">
-              {/* <h1>{h1frames[greetIndex]}</h1>
-              <div className="twodee-fog"></div> */}
             </div>
-
             <ThreeDee2 interp={interp} />
         </CamContext2.Provider>
-          {/* <p>Hello, world!</p>
-            <section className="field-row" style={{ justifyContent: 'flex-end' }}>
-            <button>OK</button>
-            <button>Cancel</button>
-          </section> */}
-        </div>
+        </div> */}
       </div>
-        <div className="neon-container">
+        {/* <div className="neon-container">
           <div id="neon-1b" style={{
             position: 'absolute', 
             left: '20%'
@@ -193,7 +192,7 @@ function App() {
           }}>
             <div className="neon-line-blue horz"></div>
           </div>
-      </div>
+      </div> */}
     </>
   );
 }

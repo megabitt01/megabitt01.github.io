@@ -53,7 +53,7 @@
   src: url(./assets/fonts/FiraCode-Bold.ttf) format('truetype');
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p, span {
   font-family: 'Fira Code';
 }
 
@@ -401,10 +401,16 @@ h1 {
 }
 
 .twodee-overlay h1 {
-  font-size: 2.5em;
+  font-size: 4.5em;
   width: 75%;
   color: #FF9BE8FF;
   z-index: 15;
+}
+
+.twodee-text {
+  color: #FF9BE8FF;
+  z-index: 15;
+  font-size: 1.5em;
 }
 
 .twodee-fog {
