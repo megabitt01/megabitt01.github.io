@@ -31,16 +31,20 @@ export default function Header() {
         <div onMouseLeave={(event) => handleLeave(event)}>
         <div className="new-header-bar">
             <div className="new-header-content">
+                <div className="new-header-home">
                 <img src="https://avatars.githubusercontent.com/u/71474581?v=4" className="new-header-image" />
                 <div className="new-header-text">
                     <h2 style={{fontSize: '2em'}}>
                         thejackbitt
                     </h2>
                 </div>
+                </div>
                 <div className="new-header-navbar">
-                    <p onMouseOver={(event) => handleOver(event, 1)} className="navbar-option">About Me</p>
-                    <p onMouseOver={(event) => handleOver(event, 2)} className="navbar-option">Modding</p>
-                    <p onMouseOver={(event) => handleOver(event, 3)} className="navbar-option">Projects</p>
+                    <div className="navbar-container">
+                        <p onMouseOver={(event) => handleOver(event, 1)} className="navbar-option">About Me</p>
+                        <p onMouseOver={(event) => handleOver(event, 2)} className="navbar-option">Modding</p>
+                        <p onMouseOver={(event) => handleOver(event, 3)} className="navbar-option">Projects</p>
+                    </div>
                 </div>
             </div>
         </div>
