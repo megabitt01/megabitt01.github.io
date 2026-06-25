@@ -40,7 +40,7 @@
 
 .new-header-dropdown {
   height: fit-content;
-  width: 100%;
+  width: calc(100% - 50px);
   z-index: 24;
   position: fixed;
   top: -200px;
@@ -48,29 +48,29 @@
   transition: all 0.35s ease-in-out; 
 }
 
-.d2 {
+#d2 {
   color: #00FDDC;
 }
 
-.d2 .section-header {
+#d2 .section-header {
   color: #fca1e4;
   font-size: 1em;
   margin-bottom: -15px;
 }
 
-.d1 .section-header, .d3 .section-header {
+#d1 .section-header, #d3 .section-header {
   color: #00FDDC;
   font-size: 1em;
   margin-bottom: -15px;
 }
 
-.d1, .d3 {
+#d1, #d3 {
   color: #fca1e4;
 }
 
 .new-header-links {
   margin: 50px 20px 0px 20px;
-  width: 50%;
+  width: calc(100% - 50px);
   height: calc( 100% - 70px);
 }
 
@@ -82,4 +82,30 @@
 
 .new-header-link:hover {
   text-decoration: underline;
+}
+
+.new-header-navbar {
+  display: flex;
+  width: 25%;
+}
+
+.new-header-navbar * {
+  margin: 0px 5px;
+}
+
+.navbar-option {
+  flex: 1;
+  font-size: 1.3em;
+  color: #fca1e4;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out; 
+}
+
+.navbar-option:hover {
+  color: #00FDDC;
+  font-weight: 700;
+}
+
+.dropped {
+  top: 50px;
 }

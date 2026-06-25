@@ -88,11 +88,11 @@ function App() {
       <div className="threedee-container" style={{paddingTop: '50px'}}>
         <CamContext.Provider value={{ camState, setCamState }}>
           <div className="twodee-overlay">
-            <div class="twodee-greeter">
-              <div class="twodee-header">
+            <div className="twodee-greeter">
+              <div className="twodee-header">
                 <h1>{h1frames[greetIndex]}</h1>
               </div>
-              <div class="twodee-text">
+              <div className="twodee-text">
                 <p><b>Hi, I'm <span className="highlight">Jack Bittner</span></b>
                   <br/>
                   Contract SWE @ Northwestern Mutual

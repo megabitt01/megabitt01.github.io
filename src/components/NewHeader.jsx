@@ -1,21 +1,50 @@
 import { useState } from "react";
 import SkeuoImage from "./SkeuoImage";
 
+const getAllD = () =>
+    document.querySelectorAll(".new-header-dropdown");
+
+function handleOver(e, n) {
+    getAllD().forEach((ref) => {
+        ref.classList.remove("dropped");
+    });
+
+    console.log(n)
+    const ref = document.getElementById(`d${n}`);
+
+    if (ref) {
+        ref.classList.add("dropped");
+    }
+}
+
+function handleLeave(e) {
+    e.stopPropagation();
+    getAllD().forEach((ref) => {
+        ref.classList.remove("dropped");
+    });
+}
+
 export default function Header() {
-    const [ cursor, setCursor ] = useState(false);
+
     return(
         <>
+        <div onMouseLeave={(event) => handleLeave(event)}>
         <div className="new-header-bar">
             <div className="new-header-content">
                 <img src="https://avatars.githubusercontent.com/u/71474581?v=4" className="new-header-image" />
                 <div className="new-header-text">
                     <h2 style={{fontSize: '2em'}}>
-                        thejackbitt{cursor ? "█" : ""}
+                        thejackbitt
                     </h2>
+                </div>
+                <div className="new-header-navbar">
+                    <p onMouseOver={(event) => handleOver(event, 1)} className="navbar-option">About Me</p>
+                    <p onMouseOver={(event) => handleOver(event, 2)} className="navbar-option">Modding</p>
+                    <p onMouseOver={(event) => handleOver(event, 3)} className="navbar-option">Projects</p>
                 </div>
             </div>
         </div>
-        <div className="new-header-dropdown d1">
+        <div id="d1" className="new-header-dropdown">
             <div className="new-header-links">
                 <p className="section-header"><b>Social Media</b></p>
                 <p className="new-header-link">LinkedIn</p>
@@ -23,7 +52,7 @@ export default function Header() {
                 <p className="new-header-link">Resume</p>
             </div>
         </div> 
-        <div className="new-header-dropdown d2">
+        <div id="d2" className="new-header-dropdown">
             <div className="new-header-links">
                 <p className="section-header"><b>Halo: The Master Chief Collection</b></p>
                 <p className="new-header-link">AlphaRing</p>
@@ -31,7 +60,7 @@ export default function Header() {
                 <p className="new-header-link">Middle Zealand Tweaks</p>
             </div>
         </div>
-        <div className="new-header-dropdown d3">
+        <div id="d3" className="new-header-dropdown">
             <div className="new-header-links">
                 <p className="section-header"><b>Books/Games</b></p>
                 <p className="new-header-link">Gonkville</p>
@@ -39,6 +68,7 @@ export default function Header() {
                 <p className="section-header"><b>YouTube</b></p>
                 <p className="new-header-link">Off the Grid</p>
             </div>
+        </div>
         </div>
         </>
     )
