@@ -84,6 +84,8 @@ h1 {
   line-height: 1.1;
 }
 
+/* main page */
+
 .app-wrapper {
   width: 400px;
   height: 100%;
@@ -436,12 +438,14 @@ h1 {
 }
 
 .twodee-leftblock {
+  width: 33%;
   position: absolute;
   left: 90px;
   top: 30px;
 }
 
 .twodee-rightblock {
+  width: 30%;
   position: absolute;
   right: 90px;
   top: 30px;
@@ -469,7 +473,7 @@ h1 {
   position: relative;
   height: 700px;
   width: 100%;
-  min-width: 1000px;
+  min-width: 1500px;
   overflow: hidden;
 }
 
@@ -848,16 +852,33 @@ h1 {
   z-index: 1;
 }
 
+.neon-btn span {
+  margin-left: -15px;
+  margin-right: 2px;
+}
+
+.neon-btn svg {
+  position: absolute;
+}
+
 .neon-btn-pink {
   color: #ff9aff;
   border: 1px solid#ff9aff;
   box-shadow: 0 0 5px #ff9aff, 0 0 5px #ff9aff inset;
 }
 
+.neon-btn-pink span {
+  color: #ff9aff;
+}
+
 .neon-btn-blue {
   color: #01f8dd;
   border: 1px solid#01f8dd;
   box-shadow: 0 0 5px #01f8dd, 0 0 5px #01f8dd inset;
+}
+
+.neon-btn-blue span {
+  color: #01f8dd;
 }
 
 .neon-btn:after {
@@ -883,15 +904,26 @@ h1 {
    0 0 20px  #01f8dd;
 }
 
-.neon-btn:hover {
+.neon-btn:hover span {
   color: #fff;
 }
+
+.neon-btn:hover svg g path {
+  stroke: #fff;
+}
+
 .neon-btn:hover:after {
   left: 0;
   width: 100%;
 }
+
 .neon-btn:active {
   top: 2px;
+}
+
+.neon-btn a {
+  text-decoration: none;
+  color: inherit;
 }
 
 button:focus, input[type=reset]:focus, input[type=submit]:focus  {
@@ -937,4 +969,223 @@ button:focus, input[type=reset]:focus, input[type=submit]:focus  {
 
 .neon-menu-item .small, .neon-menu-item-alt .small {
   font-size: 0.7em;
+}
+
+.about-me {
+  width: calc(100% - 6px);
+  height: 700px;
+}
+
+.canvas-container {
+  height: 660px;
+}
+
+.about-me-overlay {
+}
+
+.neon-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+@media screen and (max-width: 1500px) {
+  .about-me {
+    height: fit-content;
+  }
+
+  .canvas-container {
+    height: 300px;
+  }
+
+  .about-me-overlay {
+    position: relative;
+    background-color: black;
+  }
+
+  .neon-container {
+    left: calc(-1 * (1500px - 100vw) / 2);
+  }
+
+  .neon-menu li {
+    width: 700px;
+  }
+
+  .twodee-overlay {
+    height: 100%;
+    flex-direction: column;
+  }
+
+  .twodee-leftblock {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 90%;
+  }
+
+  .twodee-rightblock {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .neon-menu ul {
+    margin-left: -50px;
+    margin-top: -35px;
+  }
+
+  .about-me-overlay {
+    width: calc(100% - 5px);
+  }
+
+  .about-me-overlay ul {
+    margin-left: -25px;
+  }
+
+  .neon-menu li {
+    width: 90vw;
+  }
+
+  .twodee-greeter {
+    flex-direction: column;
+    margin-top: -15px;
+    margin-left: calc(100vw / 16);
+  }
+
+  .twodee-greeter .twodee-text {
+    margin-top: -20px;
+  }
+
+  .twodee-greeter .twodee-text .small {
+    margin-top: -10px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .neon-wrapper {
+    margin-top: -120px;
+  }
+  
+  .neon-container {
+    height: 1000px;
+  }
+
+  .neon-menu {
+    margin-top: -200px;
+  }
+
+  .twodee-header {
+    display: none;
+  }
+  .twodee-greeter {
+    width: 90%;
+  }
+}
+
+/* generic pages */
+
+.gen-header-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+.gen-header-container::after {
+  inset: 0;
+  content: "";
+  position: absolute;
+  background: #2f3f62;
+  opacity: 50%;
+  z-index: 10;
+}
+
+.gen-header-container img {
+  position: absolute;
+  transition: all 0.1s ease;
+}
+
+.gen-header-container .bkg {
+  width: 100%;
+}
+
+.gen-header-container .frg {
+  width: 100%;
+}
+
+.gen-header-container .main {
+  left: -50px;
+  width: 500px;
+}
+
+.gen-spacer {
+  height: 800px;
+  width: 100%;
+}
+
+.logo {
+  z-index: 15;
+  width: 80%;
+}
+
+.logo-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gen-content-wrapper {
+  width: 100%;
+}
+
+.gen-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0px 20px;
+}
+
+.gen-content p,
+.gen-content li,
+.gen-content h1, 
+.gen-content h2, 
+.gen-content h3, 
+.gen-content h4  {
+  color: #fca1e4;
+}
+
+.gen-content li, .gen-content p {
+  font-family: Fira Code;
+  font-size: 1.5em;
+}
+
+.get-content h2 {
+  font-size: 2.4em;
+}
+
+.gen-content * {
+  max-width: 1000px;
+}
+
+.gen-content code {
+  color: #00FDDC;
+  padding: 2px 4px;
+  background-color: black;
+  border-radius: 5px;
+}
+
+.gen-updated {
+  margin-bottom: -30px;
+  padding: 0px;
+}
+
+.gen-updated * {
+  font-size: 0.7em;
+}
+
+.gen-content p {
+  font-size: 1.5em;
 }

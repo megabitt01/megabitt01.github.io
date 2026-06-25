@@ -42,24 +42,26 @@ function CameraRig(interp) {
 
 export default function ThreeDee(interp) {
   return (
+    <div className="canvas-container">
     <Canvas
       camera={{ position: [0, 0, 0], fov: 50 }}
       style={{ 
         width: 'calc(100% - 5px)', 
-        height: '660px', 
+        height: '100%', 
         position: 'relative', 
         background: 'black',
         left:0
       }}
-    >
+      >
         <CameraRig interp/>
         <Model modelName="Arch" position={[-0.2, -2.2, -4]} scale={1} spin={true} />
           <AsciiRenderer
             fgColor="#03fcd3"
             bgColor="transparent"
             characters=".:-+*=/%@# "
-          />
+            />
         <Environment preset="studio" />
     </Canvas>
+    </div>
   )
 }

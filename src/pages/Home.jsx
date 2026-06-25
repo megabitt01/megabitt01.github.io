@@ -1,12 +1,12 @@
-import NewHeader from './components/NewHeader'
-import { h1frames } from './assets/text.js'
+import NewHeader from '../components/NewHeader'
+import { h1frames } from '../assets/text.js'
 import { useEffect, useState, useRef } from 'react'
-import './App.css'
-import { CamContext, CamContext2 } from './context/contexts'
-import ThreeDee from './components/ThreeDee';
-import ThreeDee2 from './components/ThreeDee2.jsx';
+import '../App.css'
+import { CamContext, CamContext2 } from '../context/contexts'
+import ThreeDee from '../components/ThreeDee';
+import ThreeDee2 from '../components/ThreeDee2.jsx';
 import "98.css";
-import NeonButton from './components/NeonButton.jsx'
+import NeonButton from '../components/NeonButton.jsx'
 
 function Home() {
     const [camState, setCamState] = useState(0);
@@ -107,7 +107,7 @@ function Home() {
         </CamContext.Provider>
       </div>
 
-      <div className="window" style={{ width: 'calc(100% - 6px)', height: '700px' }}>
+      <div className="window about-me">
         <div className="title-bar">
           <div className="title-bar-text">
             About Me
@@ -120,8 +120,9 @@ function Home() {
           </div>
         </div>
         <div className="window-body">
+
           <CamContext2.Provider value={{ camState2, setCamState2 }}>
-            <div className="twodee-overlay">
+            <div className="about-me-overlay twodee-overlay">
               <div className="twodee-leftblock">
                 <div className="twodee-text">
                   <p className="highlight large"><b>Work Experience</b></p>
@@ -133,40 +134,18 @@ function Home() {
                       July 2024 - Present
                       <ul>
                         <li>
-                          Designed and implemented a self-service application 
-                          <br/>
-                          enabling publishers to create recipient-specific, 
-                          <br/>                          
-                          Northwestern Mutual–branded email communications
-                          <br/>
-                          while enforcing legal and compliance standards 
-                          <br/>
-                          programmatically.
+                          Designed and implemented a self-service application enabling publishers to create recipient-specific, Northwestern Mutual–branded email communications while enforcing legal and compliance standards programmatically.
                         </li>
                         <li>
-                          Delivered new database microservice endpoints 
-                          <br/>
-                          pertaining to internal databases that eliminated 
-                          <br/>
-                          repetitive development tasks, reducing friction 
-                          <br/>
-                          and accelerating feature delivery across dependent teams.
-                        </li>
-                        <li>Maintain and develop distributed microservices 
-                          <br/>
-                          pertaining to the Alerts and Notifications platform.</li>
-                        <li>Partner with internal teams and external publishers
-                          <br/>
-                          to onboard new applications, distribute batched emails 
-                          <br/>
-                          and ensure compliance with legal.
+                          Delivered new database microservice endpoints pertaining to internal databases that eliminated repetitive development tasks, reducing friction and accelerating feature delivery across dependent teams.
                         </li>
                         <li>
-                          Contribute to platform stability and developer efficiency 
-                          <br/>
-                          through targeted API enhancements and workflow 
-                          <br/>
-                          improvements.
+                          Maintain and develop distributed microservices pertaining to the Alerts and Notifications platform.</li>
+                        <li>
+                          Partner with internal teams and external publishers to onboard new applications, distribute batched emails and ensure compliance with legal.
+                        </li>
+                        <li>
+                          Contribute to platform stability and developer efficiency through targeted API enhancements and workflow improvements.
                         </li>
                       </ul>
                     </li>
@@ -176,8 +155,6 @@ function Home() {
               </div>
               <div className="twodee-rightblock">
                 <div className="twodee-text">
-                  <br/>
-                  <br/>
                   <ul>
                     <li className="highlight"><b>Digital Marketing Specialist</b>
                       <br/>
@@ -186,18 +163,12 @@ function Home() {
                       January 2023 - October 2023
                       <ul>
                         <li>
-                          Developed a new Shopify website for ecommerce 
-                          <br/>
-                          using Javascript and Liquid.
+                          Developed a new Shopify website for ecommerce using Javascript and Liquid.
                         </li>
                         <li>
-                          Created and managed digital advertisement 
-                          <br/>
-                          campaigns through Google Ads.
+                          Created and managed digital advertisement campaigns through Google Ads.
                         </li>
-                        <li>Improved analytics tracking through 
-                          <br/>
-                          website enhancements.
+                        <li>Improved analytics tracking through website enhancements.
                         </li>
                       </ul>
                     </li>
@@ -221,9 +192,10 @@ function Home() {
               </div>
             </div>
             <ThreeDee2 interp={interp} />
-        </CamContext2.Provider>
+          </CamContext2.Provider>
         </div>
       </div>
+      <div className="neon-wrapper">
       <div className="neon-container">
           <div id="neon-1b" style={{
             position: 'absolute', 
@@ -334,6 +306,7 @@ function Home() {
             </li>
           </ul>
         </div>
+      </div>
       </div>
       </div>
         </>

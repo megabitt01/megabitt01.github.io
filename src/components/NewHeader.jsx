@@ -9,7 +9,6 @@ function handleOver(e, n) {
         ref.classList.remove("dropped");
     });
 
-    console.log(n)
     const ref = document.getElementById(`d${n}`);
 
     if (ref) {
@@ -35,7 +34,7 @@ export default function Header() {
                 <img src="https://avatars.githubusercontent.com/u/71474581?v=4" className="new-header-image" />
                 <div className="new-header-text">
                     <h2 style={{fontSize: '2em'}}>
-                        thejackbitt
+                        <a href="/">thejackbitt</a>
                     </h2>
                 </div>
                 </div>
@@ -51,26 +50,26 @@ export default function Header() {
         <div id="d1" className="new-header-dropdown">
             <div className="new-header-links">
                 <p className="section-header"><b>Social Media</b></p>
-                <p className="new-header-link">LinkedIn</p>
+                <p className="new-header-link"><a href="https://www.linkedin.com/in/jack-bittner/" target="_blank">LinkedIn</a></p>
                 <p className="section-header"><b>Documents</b></p>
-                <p className="new-header-link">Resume</p>
+                <p className="new-header-link"><a href="/resume">Resume</a></p>
             </div>
         </div> 
         <div id="d2" className="new-header-dropdown">
             <div className="new-header-links">
                 <p className="section-header"><b>Halo: The Master Chief Collection</b></p>
-                <p className="new-header-link">AlphaRing</p>
+                <p className="new-header-link"><a href="/alpharing">AlphaRing</a></p>
                 <p className="section-header"><b>Minecraft</b></p>
-                <p className="new-header-link">Middle Zealand Tweaks</p>
+                <p className="new-header-link"><a href="/middlezealand">Middle Zealand Tweaks</a></p>
             </div>
         </div>
         <div id="d3" className="new-header-dropdown">
             <div className="new-header-links">
                 <p className="section-header"><b>Books/Games</b></p>
-                <p className="new-header-link">Gonkville</p>
-                <p className="new-header-link">The Midguardians</p>
+                <p className="new-header-link"><a href="/gonkville">Gonkville</a></p>
+                <p className="new-header-link"><a href="/midguardians">The Midguardians</a></p>
                 <p className="section-header"><b>YouTube</b></p>
-                <p className="new-header-link">Off the Grid</p>
+                <p className="new-header-link"><a href="/offthegrid">Off the Grid</a></p>
             </div>
         </div>
         </div>
