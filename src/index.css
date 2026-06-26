@@ -1217,4 +1217,5 @@ button:focus, input[type=reset]:focus, input[type=submit]:focus  {
     #000013 0%,
     #0000fd 100%
   );
+  transition: all 0.5s ease;
 }

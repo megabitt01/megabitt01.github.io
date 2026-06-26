@@ -12,20 +12,33 @@ import PSWG from './pages/PSWG';
 
 function App() {
     const [loaded, setLoaded] = useState(false);
+    const [opacity, setOpacity] = useState(100);
 
-    useEffect(() => {
-        window.addEventListener("load", () => {
-          console.log("loaded")
-            setLoaded(true);
-        });
-    }, []);
+useEffect(() => {
+  const handleLoad = () => {
+    setTimeout(() => {
+      setOpacity(0);
+    }, 500)
+    setTimeout(() => {
+      setLoaded(true);
+    }, 1000)
+  };
+
+  if (document.readyState === "complete") {
+    handleLoad();
+  } else {
+    window.addEventListener("load", handleLoad);
+  }
+
+  return () => window.removeEventListener("load", handleLoad);
+}, []);
 
   return (
     <>
     <Router>
       <NewHeader />
-      { loaded &&  (
-        <Progress />
+      { !loaded &&  (
+        <Progress opacity={opacity} />
       )}
       <Routes>
         <Route path="/" element={<Home />} />
@@ -36,7 +49,6 @@ function App() {
         <Route path="/midguardians" element={<Midguardians />} />
         <Route path="/offthegrid" element={<OffTheGrid />} />
       </Routes>
-      <Progress/>
     </Router>
     </>
   );
