@@ -32,9 +32,9 @@ function Generic({
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const parallax1 = bkgOffset + scrollY * 0.1;
-    const parallax2 = frgOffset + scrollY * 0.2;
-    const parallax3 = mascotOffset + scrollY * 0.4; 
+    const parallax1 = (bkgOffset) + scrollY * 0.1;
+    const parallax2 = (frgOffset) + scrollY * 0.2;
+    const parallax3 = (mascotOffset) + scrollY * 0.4; 
     return (
         <>
             <div className="gen-header-container">

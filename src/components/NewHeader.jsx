@@ -61,6 +61,7 @@ export default function Header() {
                 <p className="new-header-link"><a href="/alpharing">AlphaRing</a></p>
                 <p className="section-header"><b>Minecraft</b></p>
                 <p className="new-header-link"><a href="/middlezealand">Middle Zealand Tweaks</a></p>
+                <p className="new-header-link"><a href="/pswg">Parzi's Star Wars Mod (1.20.1 Build)</a></p>
             </div>
         </div>
         <div id="d3" className="new-header-dropdown">

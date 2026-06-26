@@ -1189,3 +1189,32 @@ button:focus, input[type=reset]:focus, input[type=submit]:focus  {
 .gen-content p {
   font-size: 1.5em;
 }
+
+@media screen and (max-width: 970px) {
+  .gen-header-container .bkg {
+    width: 1000px;
+  }
+
+  .gen-header-container .frg {
+    width: 1000px;
+  }
+
+}
+
+/* progress indicator */
+
+.progress-wrapper {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  background: linear-gradient(
+    to top,
+    #000013 0%,
+    #0000fd 100%
+  );
+}
