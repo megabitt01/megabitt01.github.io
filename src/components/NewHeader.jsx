@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SkeuoImage from "./SkeuoImage";
+import '98.css';
 
 const getAllD = () =>
     document.querySelectorAll(".new-header-dropdown");
@@ -21,6 +22,19 @@ function handleLeave(e) {
     getAllD().forEach((ref) => {
         ref.classList.remove("dropped");
     });
+}
+
+function handleClick(e) {
+    const burger = document.getElementById("burger");
+    const bun = document.getElementById("bun");
+    if (burger.classList.contains("open")) {
+        bun.classList.remove("bun-open");
+        burger.classList.remove("open");
+        return
+    }
+    bun.classList.add("bun-open");
+    burger.classList.add("open");
+    return 
 }
 
 export default function Header() {
@@ -45,6 +59,49 @@ export default function Header() {
                         <p onMouseOver={(event) => handleOver(event, 3)} className="navbar-option">Projects</p>
                     </div>
                 </div>
+                <div onClick={(event) => handleClick(event)} id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div id="bun" className="window">
+            <div className="window-body bun-container">
+
+            <div className="new-header-links">
+                <h4><b>About Me</b></h4>
+                <div className="divider">
+                    ##########################################
+                </div>
+                <p className="section-header"><b>Social Media</b></p>
+                <p className="new-header-link"><a href="https://www.linkedin.com/in/jack-bittner/" target="_blank">LinkedIn</a></p>
+                <p className="section-header"><b>Documents</b></p>
+                <p className="new-header-link"><a href="/resume">Resume</a></p>
+            </div>
+            <div className="new-header-links">
+                 <h4><b>Modding</b></h4>
+                <div className="divider">
+                    ##########################################
+                </div>
+                <p className="section-header"><b>Halo: The Master Chief Collection</b></p>
+                <p className="new-header-link"><a href="/alpharing">AlphaRing</a></p>
+                <p className="section-header"><b>Minecraft</b></p>
+                <p className="new-header-link"><a href="/middlezealand">Middle Zealand Tweaks</a></p>
+                <p className="new-header-link"><a href="/pswg">Parzi's Star Wars Mod (1.20.1 Build)</a></p>
+            </div>
+            <div className="new-header-links">
+                <h4><b>Projects</b></h4>
+                <div className="divider">
+                    ##########################################
+                </div>
+                <p className="section-header"><b>Books/Games</b></p>
+                <p className="new-header-link"><a href="/gonkville">Gonkville</a></p>
+                <p className="new-header-link"><a href="/midguardians">The Midguardians</a></p>
+                <p className="section-header"><b>YouTube</b></p>
+                <p className="new-header-link"><a href="/offthegrid">Off the Grid</a></p>
+            </div>
             </div>
         </div>
         <div id="d1" className="new-header-dropdown">

@@ -4,6 +4,7 @@ function Generic({
     children, 
     logoImage, 
     logoText,
+    logoType = 0,
     mascotImage = "/images/jack.png",
     frgImage = "/images/synthwave_foreground.png",
     bkgImage = "/images/synthwave_mountains.png",
@@ -58,7 +59,7 @@ function Generic({
                 />
                 <div className="logo-container">
                 <img
-                    className="logo"
+                    className={`logo ${logoType == 1 ? 'logo-big' : ''}`}
                     src={logoImage}
                     alt={logoText}
                 /> 

@@ -1199,6 +1199,14 @@ button:focus, input[type=reset]:focus, input[type=submit]:focus  {
     width: 1000px;
   }
 
+  .gen-content img {
+    width: 100%;
+  }
+
+  .logo-big {
+    width: 130%;
+  }
+
 }
 
 /* progress indicator */
@@ -1218,4 +1226,44 @@ button:focus, input[type=reset]:focus, input[type=submit]:focus  {
     #0000fd 100%
   );
   transition: all 0.5s ease;
+}
+
+/* resume */
+.resume-container {
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  image-rendering: pixelated; 
+  width: 100vw;
+  height: 100vh;
+}
+
+.resume-window {
+  width: 1000px;
+}
+
+.resume-wrapper {
+  max-width: 1000px;
+}
+
+.taskbar {
+  position: absolute;
+  height: 25px;
+  width: calc(100% - 7px);
+  bottom: 0px;
+}
+
+.taskbar .window-body {
+  margin: 0px;
+}
+
+.taskbar-item {
+  user-select: none;
+  width: fit-content;
+  min-width: 75px;
+  height: 100%;
+}
+
+.taskbar-item p {
+  margin: 0 2px;
 }

@@ -9,6 +9,7 @@ import Gonkville from './pages/Gonkville'
 import Midguardians from './pages/Midguardians'
 import OffTheGrid from './pages/OffTheGrid';
 import PSWG from './pages/PSWG';
+import Resume from './components/Resume';
 
 function App() {
     const [loaded, setLoaded] = useState(false);
@@ -48,6 +49,7 @@ useEffect(() => {
         <Route path="/gonkville" element={<Gonkville />} />
         <Route path="/midguardians" element={<Midguardians />} />
         <Route path="/offthegrid" element={<OffTheGrid />} />
+        <Route path="/resume" element={<Resume />} />
       </Routes>
     </Router>
     </>

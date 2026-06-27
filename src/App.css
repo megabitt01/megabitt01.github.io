@@ -141,3 +141,146 @@ width: 17%;
 .dropped {
   top: 50px;
 }
+
+#burger {
+  display: none;
+  width: 40px;
+  height: 15px;
+  position: relative;
+  margin-right: 25px;
+  margin-top: 20px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+#burger span {
+  display: block;
+  position: absolute;
+  height: 7px;
+  width: 100%;
+  background: #fca1e4;
+  border-radius: 7px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .15s ease-in-out;
+  -moz-transition: .15s ease-in-out;
+  -o-transition: .15s ease-in-out;
+  transition: .15s ease-in-out;
+}
+
+#burger span:nth-child(1) {
+  top: 0px;
+}
+
+#burger span:nth-child(2),#burger span:nth-child(3) {
+  top: 15px;
+}
+
+#burger span:nth-child(4) {
+  top: 30px;
+}
+
+#burger.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+#burger.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#burger.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+#burger.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+#bun {
+  flex-direction: column;
+  height: 100vh;
+  position: fixed;
+  right: -400px;
+  top: 70px;
+  z-index: 20;
+  transition: all 0.2s ease;
+}
+
+.bun-open {
+  right: 0px!important;
+}
+
+.bun-container {
+  margin-top: 20px;
+  height: calc(100vh - 110px);
+  background: black;
+}
+
+#bun .new-header-link {
+  color: #00FDDC;
+}
+
+#bun .new-header-links h4 {
+  -webkit-font-smoothing: none;
+  font-family: "Pixelated MS Sans Serif", Arial;
+  color: #fca1e4;
+  margin-top: 10px;
+  margin-bottom: -15px;
+}
+
+#bun .new-header-links p {
+  -webkit-font-smoothing: none;
+  font-family: "Pixelated MS Sans Serif", Arial;
+}
+
+#bun .divider {
+  width: 100%;
+  padding-top: 15px;
+  -webkit-font-smoothing: none;
+  font-family: "Pixelated MS Sans Serif", Arial;
+  color: #fca1e4;
+}
+
+@media screen and (max-width: 760px) {
+  #burger {
+    display: block;
+  }
+
+  #bun {
+    display: flex;
+  }
+
+  .new-header-links {
+    height: fit-content;
+    margin: 0px 20px;
+  }
+
+  .new-header-dropdown {
+    display: none;
+  }
+
+  .navbar-option {
+    display: none;
+  }
+}

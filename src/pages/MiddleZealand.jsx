@@ -8,6 +8,8 @@ function MiddleZealand() {
                 updated="06/25/2026"
                 logoImage="/images/logo_middlezealand.png"
                 logoText="Logo of the Alpha Ring Halo mod"
+                bkgImage="/images/synthwave_minecraft_mountains.png"
+                frgImage="/images/synthwave_minecraft_foreground.png"
                 mascotImage="/images/minecraft.png"
                 mascotOffset={125}
             >
@@ -16,8 +18,8 @@ function MiddleZealand() {
                     AlphaRing is an open souce mod project for
                     Halo the Master Chief Collection.
                 </p>
-                <img src="/images/splitscreen.png" />
-                <img src="/images/splitscreen2.png" />
+                <img src="/images/sword_and_shield.png" />
+                <img src="/images/killstreak.png" />
                 <h4>Features</h4>
                 <ul>
                     <li>Splitscreen (all games)</li>

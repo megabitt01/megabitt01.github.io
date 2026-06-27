@@ -8,6 +8,9 @@ function Gonkville() {
                 updated = "06/25/2026"
                 logoImage = "/images/logo_gonkville.png"
                 logoText = "Logo of the Alpha Ring Halo mod"
+                logoType = {1}
+                bkgImage = "/images/synthwave_castle.png"
+                frgImage = "/images/synthwave_trees.png"
                 mascotImage = "/images/gusAndDale.png"
                 mascotOffset={125}
             >

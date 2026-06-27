@@ -8,6 +8,9 @@ function Midguardians() {
                 updated = "06/25/2026"
                 logoImage = "/images/logo_midguardians.png"
                 logoText = "Logo of the Alpha Ring Halo mod"
+                logoType = {1}
+                bkgImage="/images/synthwave_cityscape.png"
+                frgImage=""
                 mascotImage = "/images/haakon.png"
                 mascotOffset={125}
             >

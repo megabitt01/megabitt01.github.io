@@ -8,6 +8,9 @@ function PSWG() {
                 updated="06/25/2026"
                 logoImage="/images/logo_pswg.png"
                 logoText="Logo of the Alpha Ring Halo mod"
+                logoType={1}
+                bkgImage="/images/space.png"
+                frgImage=""
                 mascotImage="/images/minecraft2.png"
                 mascotOffset={125}
             >
@@ -16,8 +19,8 @@ function PSWG() {
                     AlphaRing is an open souce mod project for
                     Halo the Master Chief Collection.
                 </p>
-                <img src="/images/splitscreen.png" />
-                <img src="/images/splitscreen2.png" />
+                <img src="/images/lightsaber.png" />
+                <img src="/images/blaster.png" />
                 <h4>Features</h4>
                 <ul>
                     <li>Splitscreen (all games)</li>

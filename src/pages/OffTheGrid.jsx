@@ -8,8 +8,10 @@ function OffTheGrid() {
                 updated = "06/25/2026"
                 logoImage = "/images/logo_offthegrid.png"
                 logoText = "Logo of the Alpha Ring Halo mod"
+                bkgImage = "/images/synthwave_room.png"
+                frgImage = ""
                 mascotImage = "/images/jack.png"
-                mascotOffset={125}
+                mascotOffset={140}
             >
                 <h2>Party like it's 2008!</h2>
                 <p>
