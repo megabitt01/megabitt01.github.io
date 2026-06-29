@@ -5,7 +5,7 @@ function MiddleZealand() {
     return (
         <>
             <Generic
-                updated="06/25/2026"
+                updated="06/28/2026"
                 logoImage="/images/logo_middlezealand.png"
                 logoText="Logo of the Alpha Ring Halo mod"
                 bkgImage="/images/synthwave_minecraft_mountains.png"
@@ -13,72 +13,46 @@ function MiddleZealand() {
                 mascotImage="/images/minecraft.png"
                 mascotOffset={125}
             >
-                <h2>LOTR: Now with faction shields!</h2>
+                <h2>A bridge for LOTR and Battlegear 2!</h2>
                 <p>
-                    AlphaRing is an open souce mod project for
-                    Halo the Master Chief Collection.
+                    Middle Zealand Tweaks is a mod I designed for a modpack entitled Middle Zealand that my brother made.  
+                    It adds in faction-specific shields that are compatible with the LOTR mod in addition to a new
+                    killstreak system.
                 </p>
                 <img src="/images/sword_and_shield.png" />
                 <img src="/images/killstreak.png" />
                 <h4>Features</h4>
                 <ul>
-                    <li>Splitscreen (all games)</li>
-                    <li>Controller-Friendly Menu *NEW*</li>
-                    <li>Camera Tool (H3)</li>
-                    <li>Object Browser (H3)</li>
+                    <li>38 Unique Shields</li>
+                    <li>5 Unique "Killstreak" Swords</li>
+                    <li>Killstreak System</li>
                 </ul>
+                <img src="/images/mz_shields.png"/>
+                <p>From Gondor to Far Harad, every faction gets a unique shield.  This mod adds in 38 shields, all of which
+                    are craftable via their respective faction crafting tables.
+                </p>
+                <img src="/images/mz_weapons.png"/>
+                <p>The 5 Swords: (from left) Bardsbane, Braveheart, The Crucible, The Master Sword, Warhammer 40K.</p>
                 <h4>Installation</h4>
                 <p>
-                    Make sure you have the latest Microsoft Visual C++ Redistributable installed.
+                    This mod requries the latest version of Forge for Minecraft 1.7.10.  <a href="https://files.minecraftforge.net/net/minecraftforge/forge/index_1.7.10.html">Forge is avaiable for download here.</a>
                     <br />
                     <br />
-                    Download the latest stable build from the Releases page.
-                    <br />
-                    <br />
-                    Place the DLL into the "Halo The Master Chief Collection\mcc\binaries\win64" directory and launch the game with EAC off.
-                    <br />
-                    <br />
-                    For Running on Steam Deck/Linux, add the following command in the Steam Game Launch Options:
-                    <br />
-                    <code>WINEDLLOVERRIDES="WTSAPI32=n,b" %command%</code>
+                    It also requires the following mods to be installed in your <code>/mods</code> directory:
+                    <ul>
+                        <li><a href="https://www.curseforge.com/minecraft/mc-mods/the-lord-of-the-rings-mod-legacy">The Lord of the Rings Mod: Legacy <i>by Mevans</i></a></li>
+                        <li><a href="https://www.curseforge.com/minecraft/mc-mods/mb-battlegear-2">Mine & Blade: Battlegear 2 <i>by amedwards</i></a></li>
+                    </ul>
                 </p>
 
-                <h4>Configure the game:</h4>
+                <h4>Development</h4>
                 <p>
-
-                    Right-click MCC → Properties → Compatibility
-                    <br />
-                    <br />
-                    Enable "Force the use of a specific Steam Play compatibility tool"
-                    <br />
-                    <br />
-                    Select any Proton version (Proton 9.0, Experimental, or Proton GE all work)
-                    <br />
-                    <br />
-                    Set launch options: Add the following to Steam Launch Options:
-                    <br />
-                    <code>WINEDLLOVERRIDES="WTSAPI32=n,b" %command%</code>
-                    <br />
-                </p>
-                <h4>Controller Setup (Important for non-Xbox controllers)</h4>
-                <p>
-                    For 8BitDo and other third-party controllers, enable Steam Input for the controller
-                    <br />
-                    <br />
-                    Go to Steam → Settings → Controller → Enable "Xbox Configuration Support"
-                    <br />
-                    <br />
-                    This allows Steam to translate your controller inputs to XInput, which MCC and AlphaRing expect
-                    <br />
-                    <br />
-                    Without this, some buttons (like A or stick clicks) may not be detected
-                </p>
-
-                <h4>Usage</h4>
-                <p>
-                    Toggle menu: F4 or Left Thumbstick + Start
-
-                    To navigate using Controller use the Right Stick to move the mouse and RB to click.
+                    My brother, who is an avid fan of the LOTR books, wanted to build an immersive Minecraft modpack experience for him and 
+                    his friends.  As a recent bootcamp graduate in 2024, I wanted to learn a new language.  So, I taught myself the basics of Java
+                    and got to work.  I used Eclipse for development but I did not enjoy working with it and have used VS Code for more recent projects.
+                    <br/>
+                    <br/>
+                    The request was simple: add the 38 shields from the LOTR mod into the game as usable Battlegear 2 shields.  
                 </p>
                 <NeonButton color={0} text="Download" icon={2} link="https://github.com/thejackbitt/AlphaRing/releases/download/1.3.0/WTSAPI32.dll" />
                 <NeonButton color={1} text="Repository" icon={1} link="https://github.com/thejackbitt/AlphaRing/tree/master-chief" target="_blank" />
