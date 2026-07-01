@@ -54,8 +54,8 @@ function MiddleZealand() {
                     <br/>
                     The request was simple: add the 38 shields from the LOTR mod into the game as usable Battlegear 2 shields.  
                 </p>
-                <NeonButton color={0} text="Download" icon={2} link="https://github.com/thejackbitt/AlphaRing/releases/download/1.3.0/WTSAPI32.dll" />
-                <NeonButton color={1} text="Repository" icon={1} link="https://github.com/thejackbitt/AlphaRing/tree/master-chief" target="_blank" />
+                <NeonButton color={0} text="Download" icon={2} link="https://github.com/thejackbitt/middle-zealand-tweaks/releases/download/1.1/middle-zealand-tweaks-1.0.jar" />
+                <NeonButton color={1} text="Repository" icon={1} link="https://github.com/thejackbitt/middle-zealand-tweaks" target="_blank" />
             </Generic>
         </>
     )

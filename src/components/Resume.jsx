@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import FileExplorer from './FileExplorer';
 import { PDFViewer } from '@embedpdf/react-pdf-viewer';
 import '98.css';
 
@@ -34,7 +35,8 @@ function Resume() {
     startLeft: 0,
     startTop: 0,
   });
-  const maxim = 'calc(100vh - 100px)'
+  const maxim = 'calc(100vh - 115px)'
+  const maximInner = 'calc(100vh - 145px)'
 
   function handleResizeDown(event, index, direction) {
     document.getElementById('desktop').classList.add("no-select");
@@ -55,13 +57,14 @@ function Resume() {
 
   function handleSelect(event) {
     event.stopPropagation();
+    handleUnselect(event);
     event.target.closest('.resume-icon').classList.add('selected')
   }
 
   function handleUnselect(event) {
     event.stopPropagation();
     const icons = document.getElementsByClassName('selected')
-    for(let i = 0; i < icons.length; i++) {
+    for (let i = 0; i < icons.length; i++) {
       icons[i].classList.remove('selected');
     }
   }
@@ -69,21 +72,25 @@ function Resume() {
   function handleFocus(event, index) {
     setActive(index);
 
+    if (tasks[index - 1].state != 1) {
+      return
+    }
+
     setClones([{
-      id: `${tasks[index-1].id}Clone`,
-      top: '90vh', 
-      left: '10vw', 
-      width: 100, 
+      id: `${tasks[index - 1].id}Clone`,
+      top: '90vh',
+      left: '10vw',
+      width: 100,
       height: 50
     }])
 
     setTimeout(() => {
       setClones([{
-        id: `${tasks[index-1].id}Clone`,
-        top: `${tasks[index-1].position[1]}px`, 
-        left: `${tasks[index-1].position[0]}px`, 
-        width: tasks[index-1].size[0], 
-        height: tasks[index-1].size[1]
+        id: `${tasks[index - 1].id}Clone`,
+        top: `${tasks[index - 1].position[1]}px`,
+        left: `${tasks[index - 1].position[0]}px`,
+        width: tasks[index - 1].size[0],
+        height: tasks[index - 1].size[1]
       }])
     }, 1);
 
@@ -134,40 +141,40 @@ function Resume() {
   }
 
   function handleMinimize(event, index) {
-    handleDefocus(event, 0);
-
     setClones([{
       id: `${tasks[index].id}Clone`,
-      top: `${tasks[index].position[1]}px`, 
-      left: `${tasks[index].position[0]}px`, 
-      width: tasks[index].size[0], 
+      top: `${tasks[index].position[1]}px`,
+      left: `${tasks[index].position[0]}px`,
+      width: tasks[index].size[0],
       height: tasks[index].size[1]
     }]);
 
     setTimeout(() => {
-        setClones([{
+      setClones([{
         id: `${tasks[index].id}Clone`,
-        top: '90vh', 
-        left: '10vw', 
-        width: 100, 
+        top: '90vh',
+        left: '10vw',
+        width: 100,
         height: 50
       }])
     }, 1);
 
     setTimeout(() => {
       setClones([])
+      setTasks(prev =>
+        prev.map((task, i) =>
+          i === index
+            ? {
+              ...task,
+              state: 1,
+            }
+            : task
+        )
+      );
+
+      handleDefocus(event, 0);
     }, 250);
 
-    setTasks(prev =>
-      prev.map((task, i) =>
-        i === active - 1
-          ? {
-            ...task,
-            state: 1,
-          }
-          : task
-      )
-    );
   }
 
   function handleClose(event, index) {
@@ -175,18 +182,18 @@ function Resume() {
 
     setClones([{
       id: `${tasks[index].id}Clone`,
-      top: `${tasks[index].position[1]}px`, 
-      left: `${tasks[index].position[0]}px`, 
-      width: tasks[index].size[0], 
+      top: `${tasks[index].position[1]}px`,
+      left: `${tasks[index].position[0]}px`,
+      width: tasks[index].size[0],
       height: tasks[index].size[1]
     }]);
 
     setTimeout(() => {
-        setClones([{
+      setClones([{
         id: `${tasks[index].id}Clone`,
-        top: '50vh', 
-        left: '50vw', 
-        width: 0, 
+        top: '50vh',
+        left: '50vw',
+        width: 0,
         height: 0
       }])
     }, 1);
@@ -195,11 +202,14 @@ function Resume() {
       setClones([])
     }, 250);
 
-    setTasks(tasks[index]);
+    setTasks(prev =>
+      prev.filter((_, i) => i !== index)
+    );
   }
 
   function handleMouseDown(event, index) {
     document.getElementById('desktop').classList.add("no-select");
+    setActive(index + 1);
     setIsMoving(true);
 
     dragOffset.current = {
@@ -222,7 +232,6 @@ function Resume() {
       let left = event.clientX - dragOffset.current.x;
       let top = event.clientY - dragOffset.current.y;
 
-      // Keep window inside viewport
       const maxLeft = window.innerWidth - task.size[0] - 2;
       const maxTop = window.innerHeight - task.size[1] - 38;
 
@@ -233,9 +242,9 @@ function Resume() {
         prev.map((task, i) =>
           i === active - 1
             ? {
-                ...task,
-                position: [left, top],
-              }
+              ...task,
+              position: [left, top],
+            }
             : task
         )
       );
@@ -285,21 +294,16 @@ function Resume() {
     }
   }
 
-  function handleOpen(event, type) {
-    if (tasks.length > 0) {
-      let match = 0;
-      tasks.forEach((task) => {
-        if (task.id === type.id) {
-          match = 1;
-        }
-      })
-      if (match === 0) {
-        setTasks([...tasks, type]);
-      }
-      return
-    }
-    setTasks([type]);
-  }
+function handleOpen(event, type) {
+    setTasks(prev => {
+        if (prev.some(task => task.id === type.id))
+            return prev;
+
+        return [...prev, type];
+    });
+
+    setActive(prev => prev + 1);
+}
 
   const lastTapRef = useRef(0);
 
@@ -310,7 +314,7 @@ function Resume() {
     if (now - lastTapRef.current < DOUBLE_TAP_DELAY) {
       handleOpen(event, type)
 
-      lastTapRef.current = 0; 
+      lastTapRef.current = 0;
       return;
     }
 
@@ -338,27 +342,27 @@ function Resume() {
 
       {clones.length > 0 && clones.map((clone, index) => (
         // <Clone top={clone.top} left={clone.left} width={clone.width} height={clone.height} />
-        <div className="window" key={clone.id} style={{ 
-          position: 'absolute', 
-          top: `${clone.top}`, 
-          left: `${clone.left}`, 
-          width: `${clone.width}px`, 
-          height: `${clone.height}px`, 
+        <div className="window" key={clone.id} style={{
+          position: 'absolute',
+          top: `${clone.top}`,
+          left: `${clone.left}`,
+          width: `${clone.width}px`,
+          height: `${clone.height}px`,
           backgroundColor: 'transparent',
           transition: 'all 0.2s linear',
           zIndex: 100
         }}>
-            <div
-              className="title-bar" style={{ height: '15px'}}
-            >
-            </div>
+          <div
+            className="title-bar" style={{ height: '15px' }}
+          >
+          </div>
         </div>
       ))}
 
       {tasks.length > 0 && tasks.map((task, index) => (
         <div
           key={task.id}
-          className="window resume-window"
+          className={`window resume-window ${active - 1 === index ? "active" : ""}`}
           style={{
             display: `${task.state == 1 ? 'none' : 'block'}`,
             position: 'absolute',
@@ -389,7 +393,7 @@ function Resume() {
             onMouseDown={(event) => handleMouseDown(event, index)}
           >
             <div style={{ userSelect: 'none' }} className="title-bar-text">
-              Resume.pdf
+              {task.title}
             </div>
 
             <div className="title-bar-controls">
@@ -399,17 +403,76 @@ function Resume() {
             </div>
           </div>
 
-          <div className="resume-wrapper">
-            <PDFViewer
-              config={{ src: '/files/resume.pdf' }}
-              style={{ 
-                width: `${task.state == 2 ? '100vw' : task.size[0] + 'px'}`, 
-                height: `${task.state == 2 ? maxim : 'calc(' + task.size[1] + 'px - 25px)'}` 
-              }}
-              onReady={(registry) => {
-                // console.log('PDF viewer ready!', registry);
-              }}
-            />
+          <div className="resume-wrapper" onClick={(event) => handleFocus(event, index + 1)}>
+            {task.id == 'doc1' && (
+              <PDFViewer
+                config={{ src: '/files/resume.pdf' }}
+                style={{
+                  width: `${task.state == 2 ? '100vw' : task.size[0] + 'px'}`,
+                  height: `${task.state == 2 ? maximInner : 'calc(' + task.size[1] + 'px - 25px)'}`
+                }}
+                onReady={() => {
+                  const container = document.querySelector("embedpdf-container");
+
+                  if (!container?.shadowRoot) return;
+
+                  const style = document.createElement("style");
+                  style.textContent = `
+                  * {
+                    -webkit-font-smoothing: none !important;
+                    font-family: "Pixelated MS Sans Serif", Arial !important;
+                    font-synthesis: none !important;
+                    text-rendering: optimizeLegibility !important;
+                  }
+                `;
+
+                  container.shadowRoot.appendChild(style);
+                }}
+              />
+            )}
+            {task.id == 'bio' && (
+              <div className="txt-wrapper" onClick={(event) => handleFocus(event, index + 1)}>
+                <p>
+                  Hello!  My name is Jack Bittner.  I created this website.
+                  <br />
+                  <br />
+                  I am a remote software engineer living on a hobby farm in Wisconsin.  I'm always writing whether it is code or stories.
+                  When I'm not tending to my chickens, you'll find me in my office, coffee mug in hand, developing apps for
+                  Northwestern Mutual, typing away at a video game project or writing my latest piece of fiction.
+                  <br />
+                  <br />
+                  Thank you for visiting my website!  I hope you'll enjoy your stay.
+
+                </p>
+              </div>
+            )}
+            {task.id == 'linux' && (
+              <div className="txt-wrapper" onClick={(event) => handleFocus(event, index + 1)}>
+                <p>
+                  Linux Blog #001
+                  <br/>
+                  <br/>
+                  06/30/26
+                  <br/>
+
+                  I am an avid Linux user.  In 2025, I ditched Windows 10 before the EOL update and switched to Arch.
+                  The process was arduous, but I pushed through.  I am happier with this setup than I ever have been with Windows (even XP).  
+                  I run an Intel i9 with an NVIDIA 4080 Super so an extremely performant PC paired with the bloat-free OS that is Arch makes for
+                  a near immediate experience.  I cannot overstate how much I enjoy Linux for gaming, writing code, rendering images in Blender and
+                  even simple things like browsing the web or checking email.  The peace of mind that I get from knowing that my actions are not
+                  being tracked and sold to advertisers is great too.  I am a big fan of data privacy and open source software.  That is why I started
+                  my YouTube series "Off the Grid" although it largely became a devlog for my AlphaRing mod.  
+                  <br/>
+                  <br/>
+                  Linux is what computing should be: simple, efficient and written in C.
+                </p>
+              </div>
+            )}
+            {task.id === "folder1" && (
+              <div className="file-explorer">
+                <FileExplorer openCb={handleOpen} getMaxWidth={getMaxWidth} />
+              </div>
+            )}
           </div>
         </div>
       ))}
@@ -418,19 +481,47 @@ function Resume() {
         desktop icons
       */}
       <div className="resume-icons-container">
-        <div 
-        onClick={(event) => handleClick(event, {
-          "id": "doc1",
-          "title": "Resume.pdf",
-          "position": [0, 100],
-          "size": [getMaxWidth, 720],
-          "minimized": false
-        })} 
-        className="resume-icon">
+        <div
+          onClick={(event) => handleClick(event, {
+            "id": "folder1",
+            "title": "My Computer",
+            "position": [0, 100],
+            "size": [getMaxWidth, 720],
+            "minimized": false
+          })}
+          className="resume-icon">
+          <div className="icon-wrapper">
+            <img src="/images/icon_mycomputer.png" />
+          </div>
+          <span style={{ width: '80px' }}>My Computer</span>
+        </div>
+        <div
+          onClick={(event) => handleClick(event, {
+            "id": "doc1",
+            "title": "Resume.pdf",
+            "position": [0, 100],
+            "size": [getMaxWidth, 720],
+            "minimized": false
+          })}
+          className="resume-icon">
           <div className="icon-wrapper">
             <img src="/images/icon_doc.png" />
           </div>
           <span>Resume.pdf</span>
+        </div>
+        <div
+          onClick={(event) => handleClick(event, {
+            "id": "bio",
+            "title": "AboutMe.txt",
+            "position": [0, 100],
+            "size": [getMaxWidth, 720],
+            "minimized": false
+          })}
+          className="resume-icon">
+          <div className="icon-wrapper">
+            <img src="/images/icon_text.png" />
+          </div>
+          <span>AboutMe.txt</span>
         </div>
       </div>
 

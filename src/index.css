@@ -63,11 +63,12 @@ html {
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #00FDDC!important;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #00FDDC;
+  text-decoration: underline;
 }
 
 body {
@@ -834,7 +835,7 @@ h1 {
 
 .neon-btn {
   margin: 20px;
-  width: 130px;
+  width: 140px;
   height: 40px;
   padding: 10px 25px;
   font-family: 'Fira Code', sans-serif;
@@ -1065,11 +1066,11 @@ button:focus, input[type=reset]:focus, input[type=submit]:focus  {
   }
   
   .neon-container {
-    height: 1000px;
+    height: 800px;
   }
 
   .neon-menu {
-    margin-top: -200px;
+    margin-top: 0px;
   }
 
   .twodee-header {
@@ -1077,6 +1078,20 @@ button:focus, input[type=reset]:focus, input[type=submit]:focus  {
   }
   .twodee-greeter {
     width: 90%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .neon-wrapper {
+    margin-top: -150px;
+  }
+  
+  .neon-container {
+    height: 1200px;
+  }
+
+  .neon-menu {
+    margin-top: -350px;
   }
 }
 
@@ -1264,6 +1279,7 @@ button:focus, input[type=reset]:focus, input[type=submit]:focus  {
 
 .taskbar .window-body {
   margin: 0px;
+  display: flex;
 }
 
 .taskbar-item {
@@ -1275,6 +1291,10 @@ button:focus, input[type=reset]:focus, input[type=submit]:focus  {
 
 .taskbar-item p {
   margin: 0 2px;
+}
+
+.taskbar-item .field-border-disabled {
+  padding: 4px;
 }
 
 .resume-icons-container {
@@ -1383,6 +1403,76 @@ button:focus, input[type=reset]:focus, input[type=submit]:focus  {
   pointer-events: none;
 }
 
+.active {
+  z-index: 15;
+}
+
 .resume-icons-container * {
+  user-select: none;
+}
+
+.txt-wrapper {
+  display: block;
+  width: calc(100% - 15px);
+  height: calc(100% - 40px);
+  margin: 5px;
+  position: absolute;
+  background-color: white;
+  overflow: hidden;
+}
+
+.txt-wrapper p, .txt-wrapper span, .txt-wrapper a {
+  padding-left: 10px;
+  font-size: 1.5em;
+  -webkit-font-smoothing: none;
+  font-family: "Pixelated MS Sans Serif", Arial;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+.sidebar-wrapper {
+  display: flex;
+}
+
+.tree-list {
+  display: flex;
+  user-select: none;
+}
+
+.tree-list * {
+  user-select: none;
+  padding: 0px 2px;
+}
+
+.tree-child {
+  display: flex;
+  user-select: none;
+}
+
+.tree-child * {
+  user-select: none;
+  padding: 0px 2px;
+}
+
+.tree-item {
+  display: flex;
+  user-select: none;
+}
+
+.tree-item * {
+  user-select: none;
+  padding: 0px 2px;
+}
+
+.fe-item {
+  min-width: 80px;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fe-item * {
   user-select: none;
 }

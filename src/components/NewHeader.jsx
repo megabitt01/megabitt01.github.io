@@ -48,7 +48,7 @@ export default function Header() {
                 <img src="https://avatars.githubusercontent.com/u/71474581?v=4" className="new-header-image" />
                 <div className="new-header-text">
                     <h2 style={{fontSize: '2em'}}>
-                        <a href="/">thejackbitt</a>
+                        <a href="/">megabitt</a>
                     </h2>
                 </div>
                 </div>
@@ -78,7 +78,7 @@ export default function Header() {
                 <p className="section-header"><b>Social Media</b></p>
                 <p className="new-header-link"><a href="https://www.linkedin.com/in/jack-bittner/" target="_blank">LinkedIn</a></p>
                 <p className="section-header"><b>Documents</b></p>
-                <p className="new-header-link"><a href="/resume">Resume</a></p>
+                <p className="new-header-link"><a href="/resume">Resume & More</a></p>
             </div>
             <div className="new-header-links">
                  <h4><b>Modding</b></h4>
@@ -109,7 +109,7 @@ export default function Header() {
                 <p className="section-header"><b>Social Media</b></p>
                 <p className="new-header-link"><a href="https://www.linkedin.com/in/jack-bittner/" target="_blank">LinkedIn</a></p>
                 <p className="section-header"><b>Documents</b></p>
-                <p className="new-header-link"><a href="/resume">Resume</a></p>
+                <p className="new-header-link"><a href="/resume">Resume & More</a></p>
             </div>
         </div> 
         <div id="d2" className="new-header-dropdown">

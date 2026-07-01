@@ -5,7 +5,7 @@ function Midguardians() {
     return (
         <>
             <Generic
-                updated = "06/25/2026"
+                updated = "07/01/2026"
                 logoImage = "/images/logo_midguardians.png"
                 logoText = "Logo of the Alpha Ring Halo mod"
                 logoType = {1}
@@ -14,75 +14,43 @@ function Midguardians() {
                 mascotImage = "/images/haakon.png"
                 mascotOffset={125}
             >
-                <h2>Party like it's 2008!</h2>
+                <h2>Only the tip of the iceberg...</h2>
                 <p>
-                    AlphaRing is an open souce mod project for
-                    Halo the Master Chief Collection.
+                    The Midguardians is a graphic novel series set in an alternate
+                    (or maybe, not so alternate) universe where ancient aliens run every aspect of society. 
+                    Join a troubled teen named Alex as she uncovers the secrets of a new world she didn't 
+                    know existed.
                 </p>
-                <img src="/images/splitscreen.png" />
-                <img src="/images/splitscreen2.png" />
-                <h4>Features</h4>
-                <ul>
-                    <li>Splitscreen (all games)</li>
-                    <li>Controller-Friendly Menu *NEW*</li>
-                    <li>Camera Tool (H3)</li>
-                    <li>Object Browser (H3)</li>
-                </ul>
-                <h4>Installation</h4>
+                <img src="/images/midguardians2.png" />
+                <img src="/images/midguardians1.png" />
+                <h4>Background</h4>
                 <p>
-                    Make sure you have the latest Microsoft Visual C++ Redistributable installed.
-                    <br />
-                    <br />
-                    Download the latest stable build from the Releases page.
-                    <br />
-                    <br />
-                    Place the DLL into the "Halo The Master Chief Collection\mcc\binaries\win64" directory and launch the game with EAC off.
-                    <br />
-                    <br />
-                    For Running on Steam Deck/Linux, add the following command in the Steam Game Launch Options:
-                    <br />
-                    <code>WINEDLLOVERRIDES="WTSAPI32=n,b" %command%</code>
+                    This project draws inspiration from conspiracy theories, Norse mythology and his 
+                    experience growing up in Minneapolis. I created the series as a love-letter to 
+                    90s nostalgia and the comic books I grew up reading.  Coming up with the design
+                    for the characters has been an ongoing process and, since I am currently devoting
+                    my attention to Gonkville, it still is.  If you want to see my concept art, here's
+                    a <a href="https://themidguardians.com/conceptart">secret link</a>.
+                    <br/>
+                    <br/>
+                    My art is a mixture of Blender and Krita.  When characters are seeing the world
+                    without special lenses, everything is black, whtie and very, very dark gray.  
+                    When this is the case, I draw characters using 3D character models in Blender as
+                    a reference.  When seeing the truth, characters look colorful and are rendered with
+                    classic comic book effects.  For this, I take those same character models and render
+                    them with custom shaders in Blender.
+                    <br/>
+                    <br/>
+                    I have written an extensive storyline with lore and backstory.  I'd share more on
+                    here but that would ruin the mystery.  Instead, you'll have to wait for the 
+                    completion of Issue #1.
                 </p>
-
-                <h4>Configure the game:</h4>
+                <h4>More Information</h4>
                 <p>
-
-                    Right-click MCC → Properties → Compatibility
-                    <br />
-                    <br />
-                    Enable "Force the use of a specific Steam Play compatibility tool"
-                    <br />
-                    <br />
-                    Select any Proton version (Proton 9.0, Experimental, or Proton GE all work)
-                    <br />
-                    <br />
-                    Set launch options: Add the following to Steam Launch Options:
-                    <br />
-                    <code>WINEDLLOVERRIDES="WTSAPI32=n,b" %command%</code>
-                    <br />
+                    I hope you'll enjoy this fusion of punk art and urban legends when Issue #1 is released.  Stay tuned!
                 </p>
-                <h4>Controller Setup (Important for non-Xbox controllers)</h4>
-                <p>
-                    For 8BitDo and other third-party controllers, enable Steam Input for the controller
-                    <br />
-                    <br />
-                    Go to Steam → Settings → Controller → Enable "Xbox Configuration Support"
-                    <br />
-                    <br />
-                    This allows Steam to translate your controller inputs to XInput, which MCC and AlphaRing expect
-                    <br />
-                    <br />
-                    Without this, some buttons (like A or stick clicks) may not be detected
-                </p>
-
-                <h4>Usage</h4>
-                <p>
-                    Toggle menu: F4 or Left Thumbstick + Start
-
-                    To navigate using Controller use the Right Stick to move the mouse and RB to click.
-                </p>
-                <NeonButton color={0} text="Download" icon={2} link="https://github.com/thejackbitt/AlphaRing/releases/download/1.3.0/WTSAPI32.dll" />
-                <NeonButton color={1} text="Repository" icon={1} link="https://github.com/thejackbitt/AlphaRing/tree/master-chief" target="_blank" />
+                <NeonButton color={0} text="Preview" icon={1} link="https://themidguardians.com/gallery" target="_blank" />
+                <NeonButton color={1} text="Website" icon={1} link="https://themidguardians.com/" target="_blank" />
             </Generic>
         </>
     )

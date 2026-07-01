@@ -281,8 +281,8 @@ function Home() {
                   writing in Java or C++ and using build tools like Gradle and Clang/Ninja.
                   </span>
               </p>
-              <NeonButton color={0} text="Webpage"/>
-              <NeonButton color={1} text="Repository"/>
+              <NeonButton color={0} text="Halo MCC" icon={1} link="/alpharing"/>
+              <NeonButton color={1} text="Minecraft" icon={1} link="/middlezealand"/>
             </li>
             <li>
               <p className="neon-menu-item-alt">Catacomb Studios Azure App
@@ -293,7 +293,7 @@ function Home() {
                 deployed via Azure.
               </span>
               </p>
-              <NeonButton color={1} text="Repository"/>
+              <NeonButton color={1} text="Repository" icon={1} link="https://github.com/megabitt01/catacomb-studios"/>
             </li>
             <li>
               <p className="neon-menu-item">Other Projects
@@ -302,7 +302,8 @@ function Home() {
                 When I'm not engineering software, I write and draw.  Check out my additional projects!
               </span>
               </p>
-              <NeonButton color={0} text="Webpage"/>
+              <NeonButton color={0} text="Gonkville" icon={1} link="/gonkville"/>
+              <NeonButton color={1} text="Midguardians" icon={1} link="/midguardians"/>
             </li>
           </ul>
         </div>
