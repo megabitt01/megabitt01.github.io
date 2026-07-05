@@ -1,6 +1,6 @@
 import NewHeader from '../components/NewHeader'
 import { h1frames } from '../assets/text.js'
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useMemo, useState, useRef } from 'react'
 import '../App.css'
 import { CamContext, CamContext2 } from '../context/contexts'
 import ThreeDee from '../components/ThreeDee';
@@ -12,8 +12,10 @@ function Home() {
     const [camState, setCamState] = useState(0);
       const [camState2, setCamState2] = useState(0);
       const [viewState, setViewState] = useState(0);
-      const [coordState, setCoordState] = useState([0, 0, 950]);
       const [greetIndex, setGreetIndex] = useState(0);
+
+      const camContextValue = useMemo(() => ({ camState, setCamState }), [camState]);
+      const camContext2Value = useMemo(() => ({ camState2, setCamState2 }), [camState2]);
     
       // milliseconds
       const frameRateRef = useRef(500);
@@ -31,11 +33,6 @@ function Home() {
       useEffect(() => {
         greetIndexRef.current = greetIndex;
       }, [greetIndex]);
-    
-      useEffect(() => {
-        setCamState(coordState[0]);
-        setViewState(coordState[1]);
-      }, [coordState]);
     
       useEffect(() => {
         let animationId;
@@ -71,7 +68,8 @@ function Home() {
             startRef.current = timestamp;
           }
     
-          setCoordState([x, 0, 0]);
+          setCamState(x);
+          setViewState(0);
     
           animationId = requestAnimationFrame(animate);
         }
@@ -83,7 +81,7 @@ function Home() {
     return (
         <>
               <div className="threedee-container" style={{paddingTop: '50px'}}>
-        <CamContext.Provider value={{ camState, setCamState }}>
+        <CamContext.Provider value={camContextValue}>
           <div className="twodee-overlay">
             <div className="twodee-greeter">
               <div className="twodee-header">
@@ -103,7 +101,7 @@ function Home() {
             <div className="twodee-fog"></div>
           </div>
 
-          <ThreeDee interp={interp} />
+          <ThreeDee/>
         </CamContext.Provider>
       </div>
 
@@ -121,7 +119,7 @@ function Home() {
         </div>
         <div className="window-body">
 
-          <CamContext2.Provider value={{ camState2, setCamState2 }}>
+          <CamContext2.Provider value={camContext2Value}>
             <div className="about-me-overlay twodee-overlay">
               <div className="twodee-leftblock">
                 <div className="twodee-text">
@@ -191,7 +189,7 @@ function Home() {
                 </div>
               </div>
             </div>
-            <ThreeDee2 interp={interp} />
+            <ThreeDee2/>
           </CamContext2.Provider>
         </div>
       </div>

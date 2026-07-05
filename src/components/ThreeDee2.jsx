@@ -5,7 +5,7 @@ import Model from './Model.jsx'
 import { CamContext2 } from '../context/contexts.jsx'
 import { useRef, useState, useContext, useEffect } from 'react'
 
-function CameraRig(interp) {
+function CameraRig() {
   const {camState2, setCamState2} = useContext(CamContext2);
   const easedPos = useRef(0);
 
@@ -25,14 +25,14 @@ function CameraRig(interp) {
   // })
   useFrame((_, delta) => {
     let s
-    if(interp == true) {
-      const ease = 1 - Math.exp(-6 * delta)
-      easedPos.current += (camState - easedPos.current) * ease
+    // if(interp == true) {
+    //   const ease = 1 - Math.exp(-6 * delta)
+    //   easedPos.current += (camState - easedPos.current) * ease
   
-      s = easedPos.current
-    } else {
+    //   s = easedPos.current
+    // } else {
       s = camState2 - easedPos.current
-    }
+    // }
     _.camera.position.z = 5 - s * -0.01
     // _.camera.position.z = 5 - s * -0.01
   })
@@ -40,7 +40,7 @@ function CameraRig(interp) {
   return null
 } 
 
-export default function ThreeDee(interp) {
+export default function ThreeDee() {
   return (
     <div className="canvas-container">
     <Canvas
@@ -53,7 +53,7 @@ export default function ThreeDee(interp) {
         left:0
       }}
       >
-        <CameraRig interp/>
+        <CameraRig/>
         <Model modelName="Arch" position={[-0.2, -2.2, -4]} scale={1} spin={true} />
           <AsciiRenderer
             fgColor="#03fcd3"
